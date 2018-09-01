@@ -30,9 +30,21 @@ public class GravitedPlatform : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            playerIsInRange = true;
 
+            playerIsInRange = true;
+            var blu = player.GetComponent<PlayerController>().CurrentPlatform;
+           if (blu != null) blu.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
             player.GetComponent<PlayerController>().CurrentPlatform = collider;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsInRange = false;
+
+            player.GetComponent<PlayerController>().CurrentPlatform = null;
         }
     }
 
