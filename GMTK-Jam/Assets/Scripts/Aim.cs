@@ -19,7 +19,7 @@ public class Aim : MonoBehaviour {
         Debug.Log(lookVec);
         AimSprite.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);*/
 
-        var direction = new Vector3(Input.GetAxis("HorizontalRight"), Input.GetAxis("VerticalRight"), 0);
+        var direction = new Vector3(-Input.GetAxis("HorizontalRight"), -Input.GetAxis("VerticalRight"), 0);
 
         transform.up = direction;
     }
