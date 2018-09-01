@@ -8,9 +8,9 @@ public class Save_Scene_Script : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        PlayerPrefs.SetInt("Name_Scene", (Application.loadedLevelName));
+        PlayerPrefs.SetString("Name_Scene", (Application.loadedLevelName));
        
-        Debug.Log(PlayerPrefs.GetInt("Name_Scene").ToString);
+        Debug.Log(PlayerPrefs.GetString("Name_Scene"));
 	}
 	
 }
