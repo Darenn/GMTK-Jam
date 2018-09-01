@@ -33,17 +33,16 @@ public class PlayerController : MonoBehaviour {
                 rb.velocity = Vector3.zero;
                 //Vector3 closestPoint = CurrentPlatform.bounds.ClosestPoint(transform.position);
                 //Vector3 up = closestPoint - transform.position;
-                /*RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.position + -Aim.transform.up, 1F, 1 << LayerMask.NameToLayer("Enemy"));
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, -Aim.transform.up, 1F, 1 << LayerMask.NameToLayer("Enemy"));
                 if (hit != null && hit.collider != null)
                 {
-                    Debug.Log("asasasasasasa");
                     Debug.Log(hit.collider.name);
                     return;
-                }*/
-                if (CurrentPlatform.bounds.Contains(transform.position + -Aim.transform.up))
+                }
+                /*if (CurrentPlatform.bounds.Contains(transform.position + -Aim.transform.up))
                 {
                     return;
-                }
+                }*/
                 rb.AddForce(Aim.transform.up * -10, ForceMode2D.Impulse);
                 CurrentPlatform.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
                 CurrentPlatform = null;
