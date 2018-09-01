@@ -5,12 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class Save_Scene_Script : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
 
-        PlayerPrefs.SetString("Name_Scene", (Application.loadedLevelName));
-       
+    //Scene CurrentScene;
+    private string Namescene;
+   
+
+    void Start () {
+
+
+        Namescene = SceneManager.GetActiveScene().name;
+        //CurrentScene = SceneManager.GetActiveScene().Name;
+
+        PlayerPrefs.SetString("Name_Scene", Namescene);
+
+        // Namescene = CurrentScene;
+        //Debug.Log(Namescene);
         Debug.Log(PlayerPrefs.GetString("Name_Scene"));
 	}
 	
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            {
+            //print("space key was pressed");
+            SceneManager.LoadScene("Menu_Scene");
+        }
+
+    }
+
 }
