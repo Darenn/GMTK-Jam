@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public Collider2D CurrentPlatform;
     public GameObject Aim;
 
+    public int Energy = 3;
+
     public delegate void DieAction();
     public static event DieAction OnDied = delegate { };
 
@@ -30,13 +32,13 @@ public class PlayerController : MonoBehaviour {
                 rb.velocity = Vector3.zero;
                 //Vector3 closestPoint = CurrentPlatform.bounds.ClosestPoint(transform.position);
                 //Vector3 up = closestPoint - transform.position;
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, -Aim.transform.up, 1F, 1 << LayerMask.NameToLayer("Enemy"));
-                if (hit != null && hit.collider != null)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, -Aim.transform.up, 0.5F, 1 << LayerMask.NameToLayer("Enemy"));
+                if ((hit != null && hit.collider != null) || Energy == 0)
                 {
-                    Debug.Log(hit.collider.name);
                     AkSoundEngine.PostEvent("Play_NoJump", gameObject);
                     return;
                 }
+                Energy--;
                 rb.AddForce(Aim.transform.up * -10, ForceMode2D.Impulse);
                 CurrentPlatform.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
                 CurrentPlatform = null;
