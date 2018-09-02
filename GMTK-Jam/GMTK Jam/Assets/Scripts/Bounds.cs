@@ -16,7 +16,6 @@ public class Bounds : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("aaaaaaaaaaaaaaaaaaaa");
         var ply = other.GetComponent<PlayerController>();
         if (ply != null)
         {
