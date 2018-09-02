@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4927513689151026}
   - component: {fileID: 212281481406743704}
   - component: {fileID: 61301333538428116}
-  - component: {fileID: 114836097908766430}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -67,20 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46644115, y: 0.96369505}
   m_EdgeRadius: 0
---- !u!114 &114836097908766430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1527175795998980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb3c97b5642fa241abc6c7b6f0302f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  next_scene: Darenn
-  animator: {fileID: 0}
-  sprite: {fileID: 21300000, guid: cf32e9d10b3802b4a8fb72d167abb470, type: 3}
 --- !u!212 &212281481406743704
 SpriteRenderer:
   m_ObjectHideFlags: 1

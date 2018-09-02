@@ -10,8 +10,9 @@ public class EndLevel : MonoBehaviour {
     public Sprite sprite;
 
 	void Start () {
-		
-	}
+        animator = GameObject.Find("Fade").GetComponent<Animator>();
+
+    }
 
 	void Update () {
 

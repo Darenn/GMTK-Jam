@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         ActivateTransparencyBar();
         rb = GetComponent<Rigidbody2D>();
+        bar = GameObject.Find("Energy").GetComponent<Image>();
+        badBar = GameObject.Find("Energy (1)").GetComponent<Image>();
+        bloc1 = GameObject.Find("Energy1").GetComponent<Image>();
+        bloc2 = GameObject.Find("Energy2").GetComponent<Image>();
+        bloc3 = GameObject.Find("Energy3").GetComponent<Image>();
     }
 	
 	void Update () {
