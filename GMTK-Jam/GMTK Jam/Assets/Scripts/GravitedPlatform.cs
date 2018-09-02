@@ -23,7 +23,7 @@ public class GravitedPlatform : MonoBehaviour {
         {
             //Vector3 closestPoint = collider.bounds.ClosestPoint(player.transform.position);
             Vector3 closestPoint = collider.Distance(player.GetComponent<Collider2D>()).pointA;
-            player_rb.AddForce((closestPoint - player.transform.position).normalized * 100);
+            player_rb.AddForce((closestPoint - player.transform.position).normalized * 200);
             Debug.DrawLine(closestPoint, player.transform.position, Color.yellow, 1f, false);       
         }
     }
@@ -60,5 +60,6 @@ public class GravitedPlatform : MonoBehaviour {
         if (blu != null) plat = blu.GetComponent<GravitedPlatform>();
         if (plat != null && plat != this) plat.PlayerLeavesPlatform();
         player.GetComponent<PlayerController>().CurrentPlatform = collider;
+        AkSoundEngine.PostEvent("Play_Magnet", gameObject);
     }
 }

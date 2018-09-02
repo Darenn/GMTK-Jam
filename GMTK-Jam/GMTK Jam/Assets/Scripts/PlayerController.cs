@@ -34,11 +34,13 @@ public class PlayerController : MonoBehaviour {
                 if (hit != null && hit.collider != null)
                 {
                     Debug.Log(hit.collider.name);
+                    AkSoundEngine.PostEvent("Play_NoJump", gameObject);
                     return;
                 }
                 rb.AddForce(Aim.transform.up * -10, ForceMode2D.Impulse);
                 CurrentPlatform.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
                 CurrentPlatform = null;
+                AkSoundEngine.PostEvent("Play_Jump", gameObject);
                 return;
             }
             float movx = Input.GetAxis("Horizontal");
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Die()
     {
+        AkSoundEngine.PostEvent("Play_Voice_Die", gameObject);
         OnDied();
     }
 }

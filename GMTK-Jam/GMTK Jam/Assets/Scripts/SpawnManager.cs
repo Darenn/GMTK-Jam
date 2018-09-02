@@ -25,5 +25,6 @@ public class SpawnManager : MonoBehaviour {
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         StartPlatform.attractPlayer();*/
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 }

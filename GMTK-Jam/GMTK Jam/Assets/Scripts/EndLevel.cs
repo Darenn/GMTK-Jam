@@ -18,5 +18,6 @@ public class EndLevel : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         SceneManager.LoadScene(next_scene);
+        AkSoundEngine.PostEvent("Play_Voice_Win", gameObject);
     }
 }
