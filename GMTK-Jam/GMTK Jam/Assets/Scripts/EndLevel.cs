@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour {
 
     public string next_scene;
+    public Animator animator;
 
 	void Start () {
 		
@@ -17,7 +18,13 @@ public class EndLevel : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene(next_scene);
+        animator.SetTrigger("Fade");
+        Invoke("LoadScene", 3);
         AkSoundEngine.PostEvent("Play_Voice_Win", gameObject);
+    }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene(next_scene);
     }
 }
