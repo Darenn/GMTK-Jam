@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4496793770472204}
   - component: {fileID: 61362295376862542}
   - component: {fileID: 61940500100964168}
+  - component: {fileID: 114535420594102560}
   m_Layer: 0
   m_Name: BouncingPlatform
   m_TagString: Untagged
@@ -211,6 +212,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.26, y: 2.32}
   m_EdgeRadius: 0
+--- !u!114 &114535420594102560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522962187708616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f4dffddb0ad8045bb7719daea3b17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212099505242774418
 SpriteRenderer:
   m_ObjectHideFlags: 1

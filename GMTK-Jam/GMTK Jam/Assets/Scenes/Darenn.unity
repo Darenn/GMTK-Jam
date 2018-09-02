@@ -499,7 +499,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35062575, y: -0.044561148}
+  m_Offset: {x: 0.010618448, y: 0.039874136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -510,7 +510,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8549805, y: 3.3568788}
+  m_Size: {x: 2.6906137, y: 2.8208714}
   m_EdgeRadius: 0
 --- !u!58 &587624105
 CircleCollider2D:
@@ -1943,6 +1943,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2035805856}
   - component: {fileID: 2035805855}
+  - component: {fileID: 2035805858}
+  - component: {fileID: 2035805857}
+  - component: {fileID: 2035805859}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1990,6 +1993,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035805857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035805854}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c1450fef75a574f9fdd7edae6f64d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -1362926625
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: ab7e969784e0914590a6a2ecc8e26b38
+  multiPositionArray: []
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+--- !u!114 &2035805858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035805854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9153d00e241986b46aadf934e864111c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &2035805859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035805854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f24d88a3e3a327429b9eb83e9d7ba4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: Soundbank_GMTK
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 995b88d0a493fa4dba8bb0b7556e6e5b
 --- !u!1 &2046137269
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,5 +60,6 @@ public class GravitedPlatform : MonoBehaviour {
         if (blu != null) plat = blu.GetComponent<GravitedPlatform>();
         if (plat != null && plat != this) plat.PlayerLeavesPlatform();
         player.GetComponent<PlayerController>().CurrentPlatform = collider;
+        AkSoundEngine.PostEvent("Play_Magnet", gameObject);
     }
 }
