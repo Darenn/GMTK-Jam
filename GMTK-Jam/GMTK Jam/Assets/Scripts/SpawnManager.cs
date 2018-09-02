@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour {
 
     public GameObject SpawnPoint;
+    public GravitedPlatform StartPlatform;
     private GameObject player;
 
 	void Start () {
@@ -19,5 +20,7 @@ public class SpawnManager : MonoBehaviour {
     public void RespawnPlayer()
     {
         player.transform.position = SpawnPoint.transform.position;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        StartPlatform.attractPlayer();
     }
 }

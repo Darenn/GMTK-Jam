@@ -31,10 +31,7 @@ public class GravitedPlatform : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
 
-            playerIsInRange = true;
-            var blu = player.GetComponent<PlayerController>().CurrentPlatform;
-            if (blu != null) blu.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
-            player.GetComponent<PlayerController>().CurrentPlatform = collider;
+            attractPlayer();
         }
     }
 
@@ -51,5 +48,15 @@ public class GravitedPlatform : MonoBehaviour {
     public void PlayerLeavesPlatform()
     {
         playerIsInRange = false;
+    }
+
+    public void attractPlayer()
+    {
+        playerIsInRange = true;
+        var blu = player.GetComponent<PlayerController>().CurrentPlatform;
+        GravitedPlatform plat = null;
+        if (blu != null) plat = blu.GetComponent<GravitedPlatform>();
+        if (plat != null && plat != this) plat.PlayerLeavesPlatform();
+        player.GetComponent<PlayerController>().CurrentPlatform = collider;
     }
 }
