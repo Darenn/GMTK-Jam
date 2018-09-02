@@ -7,10 +7,12 @@ public class EndLevel : MonoBehaviour {
 
     public string next_scene;
     public Animator animator;
+    public Sprite sprite;
 
 	void Start () {
-		
-	}
+        animator = GameObject.Find("Fade").GetComponent<Animator>();
+
+    }
 
 	void Update () {
 
@@ -18,7 +20,9 @@ public class EndLevel : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player")) return;
         animator.SetTrigger("Fade");
+        GetComponent<SpriteRenderer>().sprite = sprite;
         Invoke("LoadScene", 3);
         Invoke("PlayBipBip", 0.85f);
     }
