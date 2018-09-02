@@ -20,11 +20,16 @@ public class EndLevel : MonoBehaviour {
     {
         animator.SetTrigger("Fade");
         Invoke("LoadScene", 3);
-        AkSoundEngine.PostEvent("Play_Voice_Win", gameObject);
+        Invoke("PlayBipBip", 0.85f);
     }
 
     void LoadScene()
     {
         SceneManager.LoadScene(next_scene);
+    }
+
+    void PlayBipBip()
+    {
+        AkSoundEngine.PostEvent("Play_Voice_Win", gameObject);
     }
 }
