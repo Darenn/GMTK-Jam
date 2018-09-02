@@ -21,8 +21,10 @@ public class GravitedPlatform : MonoBehaviour {
 	void Update () {
         if (playerIsInRange)
         {
-            Vector3 closestPoint = collider.bounds.ClosestPoint(player.transform.position);
+            //Vector3 closestPoint = collider.bounds.ClosestPoint(player.transform.position);
+            Vector3 closestPoint = collider.Distance(player.GetComponent<Collider2D>()).pointA;
             player_rb.AddForce((closestPoint - player.transform.position).normalized * 100);
+            Debug.DrawLine(closestPoint, player.transform.position, Color.yellow, 1f, false);       
         }
     }
 

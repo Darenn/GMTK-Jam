@@ -13,7 +13,6 @@ public class SpawnManager : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         PlayerController.OnDied += RespawnPlayer;
-        RespawnPlayer();
     }
 	
 	void Update () {
