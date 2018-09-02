@@ -24,7 +24,7 @@ public class EndLevel : MonoBehaviour {
         if (!other.CompareTag("Player")) return;
         other.GetComponent<PlayerController>().enabled = false;
         other.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        othe.SetActive(false);
+        other.gameObject.SetActive(false);
         animator.SetTrigger("Fade");
         GetComponent<SpriteRenderer>().sprite = sprite;
         Invoke("LoadScene", 3);
