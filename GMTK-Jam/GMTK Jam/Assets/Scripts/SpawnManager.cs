@@ -16,8 +16,12 @@ public class SpawnManager : MonoBehaviour {
     }
 	
 	void Update () {
-		
-	}
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 
     public void RespawnPlayer()
     {

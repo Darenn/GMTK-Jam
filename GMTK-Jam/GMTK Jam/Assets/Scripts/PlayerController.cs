@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 
 
     void Start () {
+        ActivateTransparencyBar();
         rb = GetComponent<Rigidbody2D>();
     }
 	
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour {
                 //Vector3 closestPoint = CurrentPlatform.bounds.ClosestPoint(transform.position);
                 //Vector3 up = closestPoint - transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, -Aim.transform.up, 0.5F, 1 << LayerMask.NameToLayer("Enemy"));
+                DeactivateTransparencyBar();
                 if ((hit != null && hit.collider != null) || Energy == 0)
                 {
                     AkSoundEngine.PostEvent("Play_NoJump", gameObject);
@@ -51,11 +53,20 @@ public class PlayerController : MonoBehaviour {
                 CurrentPlatform.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
                 CurrentPlatform = null;
                 AkSoundEngine.PostEvent("Play_Jump", gameObject);
+                Invoke("ActivateTransparencyBar", 1f);
                 return;
             }
             float movx = Input.GetAxis("Horizontal");
+            float movy = Input.GetAxis("Vertical");
             rb.AddForce(perpendicularVector * -movx * 15);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, 5);
+            /*
+            float movx = Input.GetAxis("Horizontal");
+            
+            rb.AddForce(new Vector3(movx, movy, 1) * 15);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, 5);*/
+
+
         }
         UpdateEnergyBar();
     }
@@ -108,5 +119,27 @@ public class PlayerController : MonoBehaviour {
             badBar.enabled = true;
             bar.enabled = false;
         }
+    }
+
+    public void ActivateTransparencyBar()
+    {
+        Color newColor = bar.color;
+        newColor.a = 0.5f;
+        bloc3.color = newColor;
+        bloc2.color = newColor;
+        bloc1.color = newColor;
+        bar.color = newColor;
+        badBar.color = newColor;
+    }
+
+    public void DeactivateTransparencyBar()
+    {
+        Color newColor = bar.color;
+        newColor.a = 1;
+        bloc3.color = newColor;
+        bloc2.color = newColor;
+        bloc1.color = newColor;
+        bar.color = newColor;
+        badBar.color = newColor;
     }
 }
