@@ -42,7 +42,7 @@ public class Main_Menu_Script : MonoBehaviour {
         if (PlayerPrefs.HasKey("Name_Scene")) {
 
             //Debug.Log(PlayerPrefs.GetString("Name_Scene"));
-
+            AkSoundEngine.PostEvent("Play_Music", gameObject);
             SceneManager.LoadScene(PlayerPrefs.GetString("Name_Scene"));
         }
     }
