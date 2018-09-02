@@ -22,7 +22,7 @@ public class Aim : MonoBehaviour {
         var direction = new Vector3(-Input.GetAxis("HorizontalRight"), -Input.GetAxis("VerticalRight"), 0);
         AimSprite.SetActive(true);
         transform.up = direction;
-        if (Input.GetAxis("HorizontalRight") < 0.1f && Input.GetAxis("VerticalRight") < 0.1f)
+        if (Mathf.Abs(Input.GetAxis("HorizontalRight")) < 0.1f && Mathf.Abs(Input.GetAxis("VerticalRight")) < 0.1F)
         {
             AimSprite.SetActive(false);
         }
