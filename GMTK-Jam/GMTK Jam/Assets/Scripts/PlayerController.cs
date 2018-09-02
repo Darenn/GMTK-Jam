@@ -8,19 +8,16 @@ public class PlayerController : MonoBehaviour {
     public Collider2D CurrentPlatform;
     public GameObject Aim;
 
-	void Start () {
+    public delegate void DieAction();
+    public static event DieAction OnDied = delegate { };
+
+
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
     }
 	
 	void Update () {
-        /*RaycastHit hhit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, Aim.transform.up, out hhit, 1))
-        {
-            Debug.DrawRay(transform.position, Aim.transform.up * hhit.distance, Color.yellow);
-        }*/
-
-        Debug.DrawLine(transform.position, transform.position + -Aim.transform.up, Color.white, 1f, false);
+       Debug.DrawLine(transform.position, transform.position + -Aim.transform.up, Color.white, 1f, false);
 
         if (CurrentPlatform != null)
         {
@@ -39,18 +36,12 @@ public class PlayerController : MonoBehaviour {
                     Debug.Log(hit.collider.name);
                     return;
                 }
-                /*if (CurrentPlatform.bounds.Contains(transform.position + -Aim.transform.up))
-                {
-                    return;
-                }*/
                 rb.AddForce(Aim.transform.up * -10, ForceMode2D.Impulse);
                 CurrentPlatform.GetComponent<GravitedPlatform>().PlayerLeavesPlatform();
                 CurrentPlatform = null;
                 return;
             }
-
             float movx = Input.GetAxis("Horizontal");
-
             rb.AddForce(perpendicularVector * -movx * 15);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, 5);
         }
@@ -62,5 +53,10 @@ public class PlayerController : MonoBehaviour {
         {
             rb.velocity = Vector3.zero;
         }
+    }
+
+    public void Die()
+    {
+        OnDied();
     }
 }
