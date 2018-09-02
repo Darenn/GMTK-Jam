@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetButtonDown("Jump"))
             {
-                if (Input.GetAxis("HorizontalRight") < 0.1f && Input.GetAxis("VerticalRight") < 0.1f)
+                if (Mathf.Abs(Input.GetAxis("HorizontalRight")) < 0.1f && Mathf.Abs(Input.GetAxis("VerticalRight")) < 0.1f)
                 {
                     return;
                 }
