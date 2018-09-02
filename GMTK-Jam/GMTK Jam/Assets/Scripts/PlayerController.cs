@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetButtonDown("Jump"))
             {
+                if (Input.GetAxis("HorizontalRight") < 0.1f && Input.GetAxis("VerticalRight") < 0.1f)
+                {
+                    return;
+                }
                 rb.velocity = Vector3.zero;
                 //Vector3 closestPoint = CurrentPlatform.bounds.ClosestPoint(transform.position);
                 //Vector3 up = closestPoint - transform.position;

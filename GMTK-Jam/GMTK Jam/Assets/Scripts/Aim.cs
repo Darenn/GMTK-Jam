@@ -20,7 +20,11 @@ public class Aim : MonoBehaviour {
         AimSprite.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);*/
 
         var direction = new Vector3(-Input.GetAxis("HorizontalRight"), -Input.GetAxis("VerticalRight"), 0);
-
+        AimSprite.SetActive(true);
         transform.up = direction;
+        if (Input.GetAxis("HorizontalRight") < 0.1f && Input.GetAxis("VerticalRight") < 0.1f)
+        {
+            AimSprite.SetActive(false);
+        }
     }
 }
