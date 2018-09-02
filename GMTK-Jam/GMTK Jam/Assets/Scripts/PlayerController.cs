@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,6 +13,13 @@ public class PlayerController : MonoBehaviour {
 
     public delegate void DieAction();
     public static event DieAction OnDied = delegate { };
+
+
+    public Image bar;
+    public Image badBar;
+    public Image bloc1;
+    public Image bloc2;
+    public Image bloc3;
 
 
     void Start () {
@@ -49,6 +57,7 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(perpendicularVector * -movx * 15);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, 5);
         }
+        UpdateEnergyBar();
     }
 
     private void LateUpdate()
@@ -63,5 +72,41 @@ public class PlayerController : MonoBehaviour {
     {
         AkSoundEngine.PostEvent("Play_Voice_Die", gameObject);
         OnDied();
+    }
+
+    public void UpdateEnergyBar()
+    {
+        if (Energy == 3)
+        {
+            bloc3.enabled = true;
+            bloc2.enabled = true;
+            bloc1.enabled = true;
+            badBar.enabled = false;
+            bar.enabled = true;
+        }
+        if (Energy == 2)
+        {
+            bloc3.enabled = false;
+            bloc2.enabled = true;
+            bloc1.enabled = true;
+            badBar.enabled = false;
+            bar.enabled = true;
+        }
+        if (Energy == 1)
+        {
+            bloc3.enabled = false;
+            bloc2.enabled = false;
+            bloc1.enabled = true;
+            badBar.enabled = false;
+            bar.enabled = true;
+        }
+        if (Energy == 0)
+        {
+            bloc3.enabled = false;
+            bloc2.enabled = false;
+            bloc1.enabled = false;
+            badBar.enabled = true;
+            bar.enabled = false;
+        }
     }
 }
